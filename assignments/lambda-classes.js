@@ -24,6 +24,9 @@ class Instructor extends Person{
     grade = function(Student, subjectString) {
         console.log(`${Student.name} receives a perfect score on ${subjectString}`);
     }
+    studentGrade = function(Student) {
+        console.log(Math.random() * Student.grade);
+    }
 }
 
 class Student extends Instructor {
@@ -32,6 +35,7 @@ class Student extends Instructor {
         this.previousBackground = studentAttrs.previousBackground;
         this.className = studentAttrs.className;
         this.favSubjects = studentAttrs.favSubjects;
+        this.grade = studentAttrs.grade;
     }
     listSubjects = function() {
         console.log(`My favorite subjects are ${this.favSubjects}`);
@@ -82,7 +86,9 @@ const fred = new Instructor({
       age: 3,
       previousBackground: 'History',
       className: 'web21',
-      favSubjects: 'Python and Golang'  
+      favSubjects: 'Python and Golang',
+      grade: 90 
+
   });
 
   const sam = new Student({
@@ -91,7 +97,8 @@ const fred = new Instructor({
     age: 90,
     previousBackground: 'Math',
     className: 'web20',
-    favSubjects: 'Ruby and Scala'  
+    favSubjects: 'Ruby and Scala',
+    grade: 80
 });
 
 const vicki = new PM({
@@ -119,3 +126,5 @@ jack.PRAAssignment('Python');
 jack.sprintChallenge('CSS');
 vicki.standUp('web21');
 pete.debugsCode(jack, 'Java');
+fred.studentGrade(sam);
+vicki.studentGrade(sam);
