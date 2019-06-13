@@ -25,7 +25,7 @@ class Instructor extends Person{
         console.log(`${Student.name} receives a perfect score on ${subjectString}`);
     }
     studentGrade = function(Student) {
-        console.log(Math.random() * Student.grade);
+        console.log(Student.grade);
     }
 }
 
@@ -45,6 +45,14 @@ class Student extends Instructor {
     }
     sprintChallenge = function(subject) {
         console.log(`${this.name} has begun sprint challenge on %{subject}`);
+    }
+    graduate = function() {
+        if (this.grade > 70) {
+            console.log(`Congrats! ${this.name} has graduated with a grade of ${this.grade}`);
+        }
+        else {
+            console.log(`Score is under 70% so ${this.name} can't graduate`);
+        }
     }
 }
 
@@ -87,7 +95,7 @@ const fred = new Instructor({
       previousBackground: 'History',
       className: 'web21',
       favSubjects: 'Python and Golang',
-      grade: 90 
+      grade: Math.random() * 100
 
   });
 
@@ -98,7 +106,7 @@ const fred = new Instructor({
     previousBackground: 'Math',
     className: 'web20',
     favSubjects: 'Ruby and Scala',
-    grade: 80
+    grade: Math.random() * 100
 });
 
 const vicki = new PM({
@@ -128,3 +136,6 @@ vicki.standUp('web21');
 pete.debugsCode(jack, 'Java');
 fred.studentGrade(sam);
 vicki.studentGrade(sam);
+fred.studentGrade(jack);
+jack.graduate();
+sam.graduate();
